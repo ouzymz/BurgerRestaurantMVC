@@ -1,0 +1,76 @@
+﻿<div style="height:88px !important; background-color:rgb(34,40,49);">
+    <div class="bg-box w-100" style="height:88px !important; min-height: auto;">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                    <span>
+                        Üç Silahşörler
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mx-auto ">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-action="Index" asp-controller="Admin" asp-area="Admin"> ADMIN <span class="sr-only">(current)</span></a>
+                            </li>
+                        }
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="Index" asp-controller="Home"> Anasayfa <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Menu" asp-controller="Menu">Menüler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="About" asp-controller="About">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Book" asp-controller="Book">Rezervasyon</a>
+                        </li>
+                        @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Logout" asp-controller="User">Çıkış</a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="user_option">
+                        @if (!User.IsInRole("Customer") && !User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Login" asp-controller="User" class="user_link">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                        }
+
+                        <a class="cart_link" href="/Order/AddToBasket">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </a>
+                        <form class="form-inline">
+                        </form>
+                        @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
+                        {
+                            <a asp-action="OrderList" asp-controller="Order" class="order_online">
+                                Sipariş Et
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-action="OrderList" asp-controller="Order" class="order_online">
+                                Giriş Yap
+                            </a>
+                        }
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+</div>

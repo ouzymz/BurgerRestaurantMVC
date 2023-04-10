@@ -1,0 +1,38 @@
+﻿@model BurgerMVCBoost.ViewModel.AllMenuVM
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Menüler
+            </h2>
+        </div>
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var menu in Model.Menus)
+                {
+
+
+                    <div class="col-sm-6 col-lg-4 all menu">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@menu.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @menu.Name
+                                    </h5>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="/Menu/Menu/">
+                View More
+            </a>
+        </div>
+    </div>
+</section>

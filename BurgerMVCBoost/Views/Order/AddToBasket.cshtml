@@ -1,0 +1,101 @@
+﻿@model BurgerMVC.EntityLayer.Concrete.Order
+@{
+    ViewData["Title"] = "AddToBasket";
+    Layout = "~/Views/Shared/_BurgerLayout2.cshtml";
+}
+
+<div class="container p-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-5 col-sm-7">
+            <ol class="list-group list-group-numbered">
+                @if (Model.Menus.Count != 0)
+                {
+                    @foreach (var item in Model.Menus)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@item.Name</div>
+                                Fiyatı: @item.Price
+                            </div>
+                            <a class="badge bg-danger rounded-pill">Sil</a>
+                        </li>
+                    }
+                }
+                @if (Model.Sauces.Count != 0)
+                {
+                    @foreach (var item in Model.Sauces)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@item.Name</div>
+                                Fiyatı: @item.Price
+                            </div>
+                            <a class="badge bg-danger rounded-pill">Sil</a>
+                        </li>
+                    }
+                }
+                @if (Model.Desserts.Count != 0)
+                {
+                    @foreach (var item in Model.Desserts)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@item.Name</div>
+                                Fiyatı: @item.Price
+                            </div>
+                            <span class="badge bg-danger rounded-pill">Sil</span>
+                        </li>
+                    }
+                }
+                @if (Model.Drinks.Count != 0)
+                {
+                    @foreach (var item in Model.Drinks)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@item.Name</div>
+                                Fiyatı: @item.Price
+                            </div>
+                            <a class="badge bg-danger rounded-pill">Sil</a>
+                        </li>
+                    }
+                }
+                @if (Model.Extras.Count != 0)
+                {
+                    @foreach (var item in Model.Extras)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@item.Name</div>
+                                Fiyatı: @item.Price
+                            </div>
+                            <a class="badge bg-danger rounded-pill">Sil</a>
+                        </li>
+                    }
+                }
+            </ol>
+        </div>
+    </div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="d-flex justify-content-between align-items-center col-lg-3 col-md-5 col-sm-3 p-4 pb-5">
+            <div class="pl-4 ms-3 me-auto">
+                <div class="fw-bold">Toplam Fiyat: @Model.TotalPrice</div>
+                <a id="showtoast" href="/Order/OrderNow" style="position:absolute; top:60%; left:19%" class="btn btn-submit bg-success align-content-center">Sipariş Ver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    @if (ViewData["result"] != null)
+    {
+        <script>
+            toastr["success"]("Siparis Durumu:", "Siparişiniz biraz alındı...");
+        </script>
+
+    }
+}
+

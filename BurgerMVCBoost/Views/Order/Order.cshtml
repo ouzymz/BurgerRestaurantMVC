@@ -1,0 +1,63 @@
+﻿@model BurgerMVCBoost.ViewModel.AllMenuVM
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_BurgerLayout2.cshtml";
+}
+
+
+<div class="container">
+    <form asp-action="AddToBasket" asp-controller="Order" class="row" method="post">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="@Model.Menu.Image" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Menu.Name</h5>
+                    <p class="card-text">@Model.Menu.Description</p>
+                    <p class="card-text text-muted">Fiyat: @Model.Menu.Price</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">İçecekler</h5>
+                    <select onselect="" asp-for="Drink.ID"
+                            asp-items="@(new SelectList(Model.Drinks,"ID","Name"))">
+                        <option disabled selected>İcecek İstemiyorum</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Soslar</h5>
+                    <select asp-for="sauce.ID"
+                            asp-items="@(new SelectList(Model.Sauces,"ID","Name"))">
+                        <option disabled selected>Sos İstemiyorum</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Yan Ürünler</h5>
+                    <select asp-for="Extra.ID"
+                            asp-items="@(new SelectList(Model.Extras,"ID","Name"))">
+                        <option disabled selected>Extra İstemiyorum</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Tatlılar</h5>
+                    <select asp-for="Dessert.ID"
+                            asp-items="@(new SelectList(Model.Desserts,"ID","Name"))">
+                        <option disabled selected>Tatli İstemiyorum</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <input asp-for="Menu.ID" type="hidden" value="@Model.Menu.ID" />
+        <button type="submit" class="btn btn-warning btn-block">Sepete Ekle</button>
+    </form>
+</div>
+
+

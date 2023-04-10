@@ -1,0 +1,170 @@
+﻿@model BurgerMVCBoost.ViewModel.AllMenuVM
+@{
+    ViewData["Title"] = "OrderList";
+    Layout = "~/Views/Shared/_BurgerLayout2.cshtml";
+}
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Menüler
+            </h2>
+        </div>
+        <ul class="filters_menu">
+            <li class="active" data-filter="*">All</li>
+            <li data-filter=".sauce">Soslar</li>
+            <li data-filter=".menu">Menüler</li>
+            <li data-filter=".extra">Yan Ürünler</li>
+            <li data-filter=".dessert">Tatlılar</li>
+            <li data-filter=".drink">İçecekler</li>
+        </ul>
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var menu in Model.Menus)
+                {
+                    <div class="col-sm-6 col-lg-4 all menu">
+                        <div class="box">
+                            <div>
+                                <div>
+                                    <input asp-for="Menu.ID" type="hidden" />
+                                </div>
+                                <div class="img-box">
+                                    <img src="@menu.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @menu.Name
+                                    </h5>
+                                    <p>
+                                        @menu.Description
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @menu.Price
+                                        </h6>
+                                        <a class="btn btn-warning" href="/Order/Order/@menu.ID">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @foreach (var extra in Model.Extras)
+                {
+                    <div class="col-sm-6 col-lg-4 all extra">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@extra.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @extra.Name
+                                    </h5>
+                                    <p>
+                                        asdsada
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @extra.Price
+                                        </h6>
+                                        <a class="btn btn-warning" href="">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @foreach (var dessert in Model.Desserts)
+                {
+                    <div class="col-sm-6 col-lg-4 all dessert">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@dessert.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @dessert.Name
+                                    </h5>
+                                    <p>
+                                        asdsadadasd
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @dessert.Price
+                                        </h6>
+                                        <a class="btn btn-warning" href="">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @foreach (var sauce in Model.Sauces)
+                {
+                    <div class="col-sm-6 col-lg-4 all sauce">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@sauce.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @sauce.Name
+                                    </h5>
+                                    <p>
+                                        asdsadadasd
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @sauce.Price
+                                        </h6>
+                                        <a class="btn btn-warning" href="">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @foreach (var drink in Model.Drinks)
+                {
+                    <div class="col-sm-6 col-lg-4 all drink">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@drink.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @drink.Name
+                                    </h5>
+                                    <p>
+                                        asdsadadasd
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @drink.Price
+                                        </h6>
+                                        <a class="btn btn-warning" href="">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

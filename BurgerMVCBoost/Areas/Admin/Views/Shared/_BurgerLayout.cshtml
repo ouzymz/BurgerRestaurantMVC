@@ -1,0 +1,23 @@
+﻿
+@await Html.PartialAsync("~/Views/Layout_Partial/_PartialHeadLinks.cshtml")
+
+<body>
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialHeader.cshtml")
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialDiscount.cshtml") 
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialMenu.cshtml")
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialAbout.cshtml")
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialBooking.cshtml")
+
+    @RenderBody()
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialFooter.cshtml")
+
+
+    @await Html.PartialAsync("~/Views/Layout_Partial/_PartialScripts.cshtml")
+
+</body>

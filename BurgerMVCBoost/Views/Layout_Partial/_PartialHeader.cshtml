@@ -1,0 +1,157 @@
+﻿<div class="hero_area">
+    <div class="bg-box">
+        <img src="~/feane-1.0.0/images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="index.html">
+                    <span>
+                        Üç Silahşörler
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mx-auto ">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item active">
+                                <a class="nav-link text-danger" asp-action="Index" asp-controller="Admin" asp-area="Admin">ADMIN</a>
+                            </li>
+                        }
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="Index" asp-controller="Home"> Anasayfa <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Menu" asp-controller="Menu">Menüler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="About" asp-controller="About">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Book" asp-controller="Book">Rezervasyon</a>
+                        </li>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Customer"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Logout" asp-controller="User">Çıkış</a>
+                            </li>
+                        }
+
+                    </ul>
+                    <div class="user_option">
+                        @if (!User.IsInRole("Customer") && !User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Login" asp-controller="User" class="user_link">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                        }
+                        <a class="cart_link" href="/Order/AddToBasket">
+                            <i class="fa fa-shopping-cart" @*style="color:white;"*@ aria-hidden="true"></i>
+                        </a>
+                        <form class="form-inline">
+                            
+                        </form>
+                        @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
+                        {
+                            <a asp-action="OrderList" asp-controller="Order" class="order_online">
+                                Sipariş Et
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-action="OrderList" asp-controller="Order" class="order_online">
+                                Giriş Yap
+                            </a>
+                        }
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- header section strats -->
+    <!-- Slider section strats -->
+
+    <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        Roman Esintili Lezzetler
+                                    </h1>
+                                    <p>
+                                        Üç Silahşörler Burger Dükkanı, kaliteli malzemelerle hazırlanan lezzetli burgerleri ve roman esintili dekorasyonu ile müşterilerine unutulmaz bir deneyim sunuyor.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Order Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        Beşiktaş'ın Keyifli Dünyasına Adım Atın
+                                    </h1>
+                                    <p>
+                                        Beşiktaş'ın en keyifli dükkanlarından biri olan Üç Silahşörler Burger Dükkanı, sadece lezzetli burgerleriyle değil aynı zamanda roman esintili dekorasyonuyla da dikkat çekiyor. Dükkanın içinde, Alexandre Dumas'ın meşhur romanı "Üç Silahşörler"den alınmış aksesuarlar ve tablolar bulunuyor. Masa örtüleri ve personelin kıyafetleri de romandaki karakterlerin tarzını yansıtıyor. Beşiktaş'ta gezinirken, Üç Silahşörler Burger Dükkanı'nın kapısını açıp içeri adım atarak kendinizi macera dolu bir dünyanın içinde bulabilirsiniz.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Order Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        Sağlıklı ve Etik
+                                    </h1>
+                                    <p>
+                                        Üç Silahşörler Burger Dükkanı, müşterilerine kaliteli ve lezzetli burgerler sunmak için tedarikçilerini özenle seçiyor. Kullanılan etler, doğal yetiştirme yöntemleriyle yetiştirilen hayvanlardan elde ediliyor. Dükkan, sürdürülebilir bir etiketleme ve etik bir tedarik zinciri sunarak müşterilerinin sağlığına ve hayvan refahına özen gösteriyor.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Order Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <ol class="carousel-indicators">
+                    <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#customCarousel1" data-slide-to="1"></li>
+                    <li data-target="#customCarousel1" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </div>
+
+    </section>
+</div>
