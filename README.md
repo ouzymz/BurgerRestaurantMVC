@@ -17,7 +17,7 @@ With the MVC pattern, our app separates the application logic into three distinc
 - Microsoft.AspNetCore.Authentication.Facebook  (6.0.15)
 - Microsoft.AspNetCore.Authentication.Google (6.0.15)
 
-## 3) 
+## 3) Project Path
 
 - Entities to be used in the application are defined in the model folder.
 - Fluent API is used for mapping of entities.
